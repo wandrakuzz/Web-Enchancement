@@ -60,7 +60,7 @@
                     <tr>
                         <td>   </td>
                         <td>   </td>
-                        <td>   </td>
+                        <td>   </td
                         <td><h3>Total To Pay</h3></td>
                         <td class="text-right"><h3><strong>RM{{ number_format($subTotal + $gst, 2, '.', ' ') }}</strong></h3></td>
                     </tr>
@@ -69,13 +69,13 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                            <a href="{{ url('product')}}" class="btn btn-default">
+                            <a href="{{ url('/')}}" class="btn btn-default">
                                 <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                             </a></td>
                         <td>
                           <form action="{{url('checkout')}}" method="post">
                             {!!csrf_field()!!}
-                            <input type="hidden" name="total" value="{{ number_format($subTotal+$gst,2,'.',' ')}}">
+                            <input type="hidden" name="total" value="{{ number_format($subTotal + $gst, 2,'.','')}}">
                             <button type="submit" class="btn btn-success">
                                 Checkout <span class="glyphicon glyphicon-play"></span>
                             </button></td>

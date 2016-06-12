@@ -62,7 +62,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="{{ url('/') }}"><img src="{{ asset('catalogue/images/home/logo.png') }}" alt="" /></a>
+							<a href="{{ url('/') }}"><img src="{{ asset('catalogue/images/product/logo2.png') }}" alt="" width="60%" height="60%"/></a>
 						</div>
 						<div class="btn-group pull-right">
 						</div>

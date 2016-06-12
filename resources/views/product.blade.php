@@ -42,6 +42,40 @@
                   </ul>
                 </div>
               </div>
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#epson">
+                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                    Epson
+                  </a>
+                </h4>
+              </div>
+              <div id="epson" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul>
+                    <li><a href="{{ url('?brand=optoma&type=Full+HD+3D+Projector') }}">Full HD 3D Projector</a></li>
+                    <li><a href="{{ url('?brand=optoma&type=Digital+Multimedia+Projector') }}">Digital Multimedia Projector</a></li>
+                    <li><a href="{{ url('?brand=optoma&type=PC+3D+Ready+Projector') }}">PC 3D Ready Projector</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#hitachi">
+                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                    Hitachi
+                  </a>
+                </h4>
+              </div>
+              <div id="hitachi" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul>
+                    <li><a href="{{ url('?brand=optoma&type=Full+HD+3D+Projector') }}">Full HD 3D Projector</a></li>
+                    <li><a href="{{ url('?brand=optoma&type=Digital+Multimedia+Projector') }}">Digital Multimedia Projector</a></li>
+                    <li><a href="{{ url('?brand=optoma&type=PC+3D+Ready+Projector') }}">PC 3D Ready Projector</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -60,7 +94,7 @@
     @endforeach
     <div style="clear: both;"></div>
     <div class="pull-right">
-      {!! $products->appends(['category' => \Illuminate\Support\Facades\Input::get('category'), 'brand' => \Illuminate\Support\Facades\Input::get('brand')])->render() !!}
+      {!! $products->appends(['type' => \Illuminate\Support\Facades\Input::get('type'), 'brand' => \Illuminate\Support\Facades\Input::get('brand')])->render() !!}
     </div>
   </div>
   </div>
