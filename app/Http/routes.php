@@ -29,3 +29,7 @@ Route::post('checkout', ['middleware' => ['web','auth'], 'uses' => 'CatalogContr
 Route::get('payment/{id}', ['middleware' => ['web','auth'], 'uses' => 'CatalogController@makePayment']);
 Route::post('payment/{id}', ['middleware' => ['web','auth'], 'uses' => 'CatalogController@storePayment']);
 Route::get('receipt/{id}', ['middleware' => ['web','auth'], 'uses' => 'CatalogController@showReceipt']);
+
+
+Route::get('pdf/invoice/{orderID}', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogController@showInvoicePDF']);
+Route::get('pdf/receipt/{orderID}', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogController@showReceiptPDF']);

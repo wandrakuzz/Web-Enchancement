@@ -5,7 +5,9 @@ use App\Order;
 use App\OrderDetail;
 use App\Product;
 use App\Payment;
-use Illuminate\Foundation\Auth\User;
+use App\User;
+
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -85,6 +87,9 @@ class CatalogController extends Controller
                                             ->where('customer_id', Auth::user()->id)->first();
         //calculate the subtotal
         $subTotal = 0;
+        if(!$cart) {
+             return view('empty-cart');
+         }
         foreach($cart->orderDetail as $c) {
             $TotalEachProduct = $c->quantity * $c->product->price;
             $subTotal+=$TotalEachProduct;
@@ -156,4 +161,36 @@ class CatalogController extends Controller
         $orderDetail = OrderDetail::where('order_id', $order->id)->get();
         return view('receipt', compact('payment', 'customer', 'order', 'orderDetail'));
     }
+
+    public function showInvoicePDF($orderID) {
+ //        dd($orderID);
+         $order = Order::with('orderDetail', 'orderDetail.product')->findOrFail($orderID);
+         $user = User::findOrFail(Auth::user()->id);
+
+         $subTotal = 0;
+         foreach($order->orderDetail as $c) {
+             $TotalEachProduct = $c->quantity * $c->product->price;
+             $subTotal+=$TotalEachProduct;
+         }
+
+         $pdf = app('dompdf.wrapper');
+        $pdf->loadView('pdf.invoice', compact('order', 'user', 'subTotal'));
+         return $pdf->stream('invoice.pdf');
+     }
+
+     public function showReceiptPDF($orderID) {
+         $order = Order::with('orderDetail', 'orderDetail.product')->findOrFail($orderID);
+         $user = User::findOrFail(Auth::user()->id);
+
+         $subTotal = 0;
+        foreach($order->orderDetail as $c) {
+            $TotalEachProduct = $c->quantity * $c->product->price;
+            $subTotal+=$TotalEachProduct;
+         }
+
+         $payment = Payment::where('order_id', $order->id)->first();
+         $pdf = app('dompdf.wrapper');
+         $pdf->loadView('pdf.receipt', compact('order', 'user', 'subTotal', 'payment'));
+         return $pdf->stream('receipt.pdf');
+     }
 }

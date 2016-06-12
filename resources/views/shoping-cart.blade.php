@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
     <div class="container">
@@ -19,7 +19,7 @@
                         <tr>
                             <td class="col-sm-8 col-md-6">
                                 <div class="media">
-                                    <a class="thumbnail pull-left" style="margin-right: 10px;" href="#"> <img class="media-object" src="{{ asset('products/'.$p->product->image) }}" style="width: 72px; height: 72px;"> </a>
+                                    <a class="thumbnail pull-left" style="margin-right: 10px;" href="#"> <img class="media-object" src="{{ asset('catalogue/images/product/'.$p->product->image) }}" style="width: 72px; height: 72px;"> </a>
                                     <div class="media-body">
                                         <h4 class="media-heading">{{ $p->product->name }}</h4>
                                         <p>Item Number: {{ $p->product->product_num }}</p>

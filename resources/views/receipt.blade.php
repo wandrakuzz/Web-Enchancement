@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="row">
-                <h3>Order Number: {{ $payment->order->order_number }}</h3>
+                <h3>Order Number: {{ $payment->order->order_num }}</h3>
                 <p>Order Date: {{ $payment->order->created_at->format('d/m/Y g:ia') }}</p>
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -56,8 +56,8 @@
 
             <div class="row">
                 <div class="col-md-6 pull-right" style="text-align: right">
-                    <a href="" class="btn btn-primary">View Invoice</a>
-                    <a href="" class="btn btn-primary">View Receipt</a>
+                  <a href="{{ url('pdf/invoice', $order->id) }}" target="_blank" class="btn btn-primary">View Invoice</a>
++                 <a href="{{ url('pdf/receipt', $order->id) }}" target="_blank" class="btn btn-primary">View Receipt</a>
                 </div>
             </div>
         </div>
