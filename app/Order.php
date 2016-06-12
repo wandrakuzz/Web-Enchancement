@@ -17,7 +17,7 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'order_num','customer_id', 'staff_id', 'status'
+        'order_num','customer_id', 'staff_id', 'status','total'
     ];
 
     public function customer()
@@ -33,5 +33,10 @@ class Order extends Model
     public function OrderDetail()
     {
       return $this->hasMany(OrderDetail::class, 'order_id');
+    }
+
+    public function payment()
+    {
+      return $this->hasOne(Payment::class, 'payment_id');
     }
 }

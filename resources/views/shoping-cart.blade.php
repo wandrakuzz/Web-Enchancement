@@ -73,9 +73,13 @@
                                 <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                             </a></td>
                         <td>
-                            <button type="button" class="btn btn-success">
+                          <form action="{{url('checkout')}}" method="post">
+                            {!!csrf_field()!!}
+                            <input type="hidden" name="total" value="{{ number_format($subTotal+$gst,2,'.',' ')}}">
+                            <button type="submit" class="btn btn-success">
                                 Checkout <span class="glyphicon glyphicon-play"></span>
                             </button></td>
+                          </form>
                     </tr>
                     </tbody>
                 </table>

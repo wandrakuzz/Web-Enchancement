@@ -135,8 +135,7 @@
 
 @yield('content')
 
-	<footer id="footer"><!--Footer-->
-
+	<footer><!--Footer-->
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
@@ -145,11 +144,7 @@
 				</div>
 			</div>
 		</div>
-
 	</footer><!--/Footer-->
-
-
-
   <script src="{{ asset('catalogue/js/jquery.js') }}"></script>
   <script src="{{ asset('catalogue/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('catalogue/js/jquery.scrollUp.min.js') }}"></script>

@@ -25,3 +25,5 @@ Route::get('shoping-cart', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogC
 Route::delete('shoping-cart/{id}', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogController@removeProduct']);
 
 Route::get('order-history', ['middleware' => ['web','auth'], 'uses' => 'CatalogController@OrderHistory']);
+Route::post('checkout', ['middleware' => ['web','auth'], 'uses' => 'CatalogController@checkout']);
+Route::get('payment/{id}', ['middleware' => ['web','auth'], 'uses' => 'CatalogController@makePayment']);

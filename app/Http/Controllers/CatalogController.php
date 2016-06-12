@@ -16,10 +16,11 @@ class CatalogController extends Controller
 {
   public function catalog() {
 
+    $brand = Input::get('brand');
     $category = Input::get('type');
 
     if ($category) {
-      $products = Product::where('type',$category)->paginate(3);
+      $products = Product::where('brand',$brand)->where('type',$category)->paginate(3);
     } else {
       $products = Product::paginate(3);
     }
@@ -109,5 +110,29 @@ class CatalogController extends Controller
       $cart = Order::with('orderDetail', 'orderDetail.product')->where('customer_id', Auth::user()->id)->get();
 
       return view ('order-history',compact('cart'));
+    }
+
+    public function checkout(Request $request){
+
+      //get active order
+      $cart = Order::with('orderDetail','orderDetail.product')->where('status','active')
+      ->where('customer_id',Auth::user()->id)->first();
+
+      if($cart){
+        $cart->update([
+          'status' => 'checkout',
+          'total' => $request->total,
+        ]);
+        return redirect(url('payment',$cart->id));
+      }else {
+        return back();
+            }
+    }
+
+    public function makePayment($id){
+
+      $order = Order::with('orderDetail','orderDetail.product')->findOrFail($id);
+
+      return view('payment', compact('order'));
     }
 }
