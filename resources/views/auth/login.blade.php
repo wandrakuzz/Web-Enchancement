@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('title')
-  <title>Login | E-Shopper</title>
+  <title>Login | Pro-Projector</title>
 @stop
 
 @section('content')

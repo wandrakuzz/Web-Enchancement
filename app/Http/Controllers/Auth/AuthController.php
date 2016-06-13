@@ -33,7 +33,7 @@ class AuthController extends Controller
       $user = Auth::user();
 
       if($user->user_group == 'admin'){
-        $redirectPath = 'admin/dashboard';
+        $redirectPath = 'dashboard';
       }else if ($user->user_group == 'customer') {
         $redirectPath = '/';
       }else{

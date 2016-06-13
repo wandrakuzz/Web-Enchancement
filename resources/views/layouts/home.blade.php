@@ -110,15 +110,15 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="{{ url('/') }}" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i>
+								{{-- <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i>
                 </a><ul role="menu" class="sub-menu">
                     <li><a href="{{ url('/') }}">Products</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
 										<li><a href="{{url('/shoping-cart')}}">Cart</a></li>
 										<li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
-                </li>
-								<li><a href="contact-us.html">Contact</a></li>
+                </li> --}}
+								<li><a href="{{url('/contactme')}}">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -138,7 +138,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2013 Pro-Projector Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>

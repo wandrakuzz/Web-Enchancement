@@ -48,11 +48,10 @@
 <table border="0" width="100%">
     <tr>
         <td class="logo">
-            <h1>MEGA<span>furniture</span></h1>
-            <p>The best furniture store in town!</p>
+            <img src="catalogue/images/product/logo2.png" alt="" />
         </td>
         <td class="address-company" style="text-align: right">
-            <h4>Mega Furniture Sdn Bhd (603640-V)</h4>
+            <h4>Pro Projector Sdn Bhd (603640-V)</h4>
             <p style="margin-top: 0px;">
                 19-2, Wisma Laxton, Jalan Desa, Taman Desa,<br/>
                 Off Jalan Klang Lama,<br/>

@@ -193,4 +193,8 @@ class CatalogController extends Controller
          $pdf->loadView('pdf.receipt', compact('order', 'user', 'subTotal', 'payment'));
          return $pdf->stream('receipt.pdf');
      }
+
+     public function contactme(){
+       return view('aboutme');
+     }
 }

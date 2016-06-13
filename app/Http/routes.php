@@ -17,7 +17,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-
 Route::get('/', 'CatalogController@catalog'); //route to product page
 Route::get('product/{id}', 'CatalogController@viewProduct'); //route to view product page
 Route::post('addToCart', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogController@addToCart']); //route to process the add to cart
@@ -33,3 +32,18 @@ Route::get('receipt/{id}', ['middleware' => ['web','auth'], 'uses' => 'CatalogCo
 
 Route::get('pdf/invoice/{orderID}', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogController@showInvoicePDF']);
 Route::get('pdf/receipt/{orderID}', ['middleware' => ['web', 'auth'], 'uses' => 'CatalogController@showReceiptPDF']);
+
+Route::get('contactme', 'CatalogController@contactme');
+
+Route::group(['middleware' => ['web', 'auth', 'admin'], 'prefix' => 'admin'], function () {
+
+
+    Route::resource('product', 'ProductController');
+    Route::resource('customer', 'CustomerController');
+    Route::resource('order', 'OrderController');
+    Route::resource('product', 'ProductController');
+    Route::resource('staff', 'StaffController');
+
+});
+
+Route::get('dashboard', 'AdminController@dashboard');
